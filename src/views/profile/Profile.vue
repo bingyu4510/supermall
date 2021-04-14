@@ -1,17 +1,15 @@
 <template>
     <div>
         <nav-bar class="nav-bar">
-            <div class="left" slot="left" @click='back'>
+            <div class="left" slot='left' @click='back'>
               <div class="left-item"></div>
             </div>
             <div slot="center" class="center">
-                我的主页
+                我的主页哈哈哈
             </div>
             <div class="rigth" slot="right">设置</div>
-            <div>
-
-            </div>
         </nav-bar>
+        <div>我是内容区域</div>
     </div>
 </template>
 <script>
@@ -41,20 +39,23 @@
     }
 
     .left {
-        /* background-color: dimgrey; */
+        /* 使用flex模式居中 */
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .left-item {
-        width: 20px;
-        height: 20px;
+        /* 使用定位居中时，translate不起效果 */
+        width: 15px;
+        height: 15px;
         border-left: 2px solid black;
         border-bottom: 2px solid black;
-        margin: 12px auto;
         transform: rotate(40deg);
     }
 
     .center {
-        background-color: indianred;
+        background-color: #ff8198;
         color: black;
         font-size: 20px;
     }

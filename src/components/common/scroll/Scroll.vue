@@ -16,7 +16,7 @@
         },
         props: {
             probeType: {
-                tyep: Number,
+                type: Number,
                 default: 0
             },
             pullUpLoad: {
@@ -24,21 +24,29 @@
                 default: false
             }
         },
+        created() {
+
+        },
         mounted() {
             this.scroll = new BScroll(this.$refs.wrapper, {
                 click: true, //设置div元素是否可以点击
                 probeType: this.probeType, //是否可以监听滚动
                 pullUpLoad: this.pullUpLoad, //是否可以监听下拉加载更多
             });
+            // probeType是否等于2或者3
+            if (this.probeType == 3 || this.probeType == 2) {
+                this.scroll.on('scroll', (position) => { //使用这个函数监听位置信息
+                    this.$emit('scroll', position);
+                });
+            }
+            //pullingUp不等于false时监听
+            if (this.pullUpLoad == true) {
+                this.scroll.on('pullingUp', () => {
+                    // console.log("上拉加载更多");                                                                                                               
+                    this.$emit('pullingUp');
+                })
+            }
 
-            this.scroll.on('scroll', (position) => { //使用这个函数监听位置信息
-                this.$emit('scroll', position);
-            });
-
-            this.scroll.on('pullingUp', () => {
-                // console.log("上拉加载更多");
-                this.$emit('pullingUp');
-            })
         },
         methods: {
             scrollTo(x, y, time = 1000) {

@@ -1,5 +1,5 @@
 <template>
-    <div v-if="Object.keys(goods).length !== 0" class="base-info">
+    <div v-if="Object.keys(goods).length > 2" class="base-info">
       <div class="info-title">{{goods.title}}</div>
       <div class="info-price">
         <span class="n-price">{{goods.newPrice}}</span>
@@ -31,7 +31,13 @@
                     return {}
                 }
             }
-        }
+        },
+
+        /*   mounted() {
+                // console.log(this.goods)
+            // 打印结果是2，只有两个属性，但是确实能获取其他数据，因此控制是否显示条件不得以修改为>2
+              console.log(Object.keys(this.goods).length)
+          }, */
     }
 </script>
 

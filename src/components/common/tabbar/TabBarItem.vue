@@ -8,7 +8,7 @@
             <slot name="item-text"></slot>
         </div>
     </div>
-        
+
 </template>
 <script>
     export default {
@@ -20,6 +20,7 @@
         },
         methods: {
             itemclick() {
+                //使用push函数将大的路由对象的地址改为设置的地址
                 this.$router.push(this.path)
             }
         },
@@ -55,7 +56,7 @@
         text-align: center;
         font-size: 14px;
     }
-    
+
     .tab-bar-item img {
         width: 24px;
         height: 24px;
@@ -63,7 +64,7 @@
         margin-bottom: 2px;
         vertical-align: bottom;
     }
-    
+
     .active {
         color: #b11111;
     }
