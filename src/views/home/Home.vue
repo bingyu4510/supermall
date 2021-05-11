@@ -62,6 +62,11 @@ export default {
     Scroll,
     BackTop,
   },
+  // updated() {
+  //   this.$nextTick(() => {
+  //     import Scroll from "../../components/common/scroll/Scroll";
+  //   });
+  // },
   data() {
     return {
       banner: [],
